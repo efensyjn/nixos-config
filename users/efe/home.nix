@@ -36,6 +36,7 @@
     p7zip
     kdePackages.kate
     keepassxc
+    kitty
 
     krita
   ];

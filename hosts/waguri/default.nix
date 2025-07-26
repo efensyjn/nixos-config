@@ -28,14 +28,9 @@ in {
   picks.git.enable = true;
   picks.nh.enable = true;
 
-  networking.networkmanager.enable = true;
+  mods.plasma.enable = true;
 
-  #specialisation.plasma.configuration = {
-    services.xserver.enable = true;
-    services.displayManager.sddm.enable = true;
-    services.displayManager.sddm.wayland.enable = true;
-    services.desktopManager.plasma6.enable = true;
-  #};
+  networking.networkmanager.enable = true;
 
   system.stateVersion = "25.05";
 }
