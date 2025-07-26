@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   options = {
@@ -12,11 +12,13 @@
   };
 
   config = lib.mkIf config.picks.neovim.enable { 
-    programs.neovim = {
+    programs.nvchad = {
       enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
+      extraPackages = with pkgs; [
+        nixd
+      ];
+      hm-activation = true;
+      backup = true;
     };
 
     home.sessionVariables = {

@@ -9,10 +9,19 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix4nvchad = {
+      url = "github:nix-community/nix4nvchad";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @inputs: let
-    overlays = [];
+    overlays = [
+      (final: prev: {
+        nvchad = inputs.nix4nvchad.packages."${nixpkgs.system}".nvchad;
+      })
+    ];
 
     mkSystem = import ./lib/mksystem.nix {
       inherit overlays nixpkgs inputs;
@@ -25,5 +34,4 @@
       };
     };
   };
-
 }
