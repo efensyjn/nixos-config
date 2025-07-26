@@ -11,6 +11,7 @@
   home.homeDirectory = "/home/efe";
   home.stateVersion = "25.05";
 
+  picks.kitty.enable = true;
   picks.neovim.enable = true;
   picks.zsh.enable = true;
   picks.git = {
@@ -36,7 +37,6 @@
     p7zip
     kdePackages.kate
     keepassxc
-    kitty
 
     krita
   ];
