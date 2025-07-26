@@ -18,7 +18,7 @@
   config = lib.mkIf config.mods.plasma.enable {
     services.xserver.enable = true;
     services.desktopManager.plasma6.enable = true;
-    config.mods.sddm.enable = true;
+    mods.sddm.enable = true;
     environment.plasma6.excludePackages = with pkgs.kdePackages; [
       konsole
     ];

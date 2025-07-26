@@ -20,6 +20,6 @@
       enable = true;
       xwayland.enable = true;
     };
-    config.mods.sddm.enable = true;
+    mods.sddm.enable = true;
   };
 }
