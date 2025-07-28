@@ -1,6 +1,6 @@
-{ pkgs, ... }: let
-  name = "waguri";
-in {
+{ pkgs, ... }:
+
+{
   imports =
     [
       ./hardware-configuration.nix
@@ -9,7 +9,7 @@ in {
       ../../mods
     ];
   
-  networking.hostName = name;
+  networking.hostName = "waguri";
 
   time.timeZone = "Indian/Maldives";
   
@@ -29,8 +29,6 @@ in {
   picks.nh.enable = true;
 
   mods.plasma.enable = true;
-
-  networking.networkmanager.enable = true;
 
   system.stateVersion = "25.05";
 }

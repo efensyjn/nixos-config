@@ -1,8 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
     ../picks  # Import your picks modules directory
+    inputs.nix4nvchad.homeManagerModules.default
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

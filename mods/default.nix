@@ -3,6 +3,7 @@
 {
   imports = [
     ./nvidia.nix
+    ./networking.nix
 
     ./services/libinput.nix
     ./services/pipewire.nix
