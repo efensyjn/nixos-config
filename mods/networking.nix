@@ -11,7 +11,7 @@
     };
   };
 
-  config = lib.mkIf config.mods.netowrking.enable {
+  config = lib.mkIf config.mods.networking.enable {
     networking.networkmanager.enable = true;
     services.dnscrypt-proxy2 = {
       enable = true;
