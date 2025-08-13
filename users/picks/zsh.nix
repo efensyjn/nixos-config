@@ -7,6 +7,11 @@
         default = false;
         description = "Enable zsh with oh-my-zsh";
       };
+      cont = lib.mkOption {
+        type = lib.types.str;
+        default = "";
+        description = "Enable zsh with oh-my-zsh";
+      };
     };
   };
 
@@ -19,6 +24,7 @@
         size = 10000;
         path = "${config.xdg.dataHome}/zsh/history";
       };
+      initContent = config.picks.zsh.cont;
     };
   };
 }

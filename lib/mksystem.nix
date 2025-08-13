@@ -5,19 +5,32 @@
 name:
 {
   system,
-  user
+  users ? null,
+  user ? null
 }:
 
 let
 
+  normalizedUsers =
+    if users != null then users
+    else if user != null then [ user ]
+    else throw "Must provide either `user` or `users`.";
+
   # The config files for this system.
   hConf = ../hosts/${name};
-  userConfig = ../users/${user};
-  userHMConfig = ../users/${user}/home.nix;
+  #userConfig = ../users/${user};
+  #userHMConfig = ../users/${user}/home.nix;
 
   # NixOS
   systemFunc = nixpkgs.lib.nixosSystem;
   home-manager = inputs.home-manager.nixosModules;
+
+  hmUsers =
+    builtins.listToAttrs (map (u: {
+      name = u;
+      value = import ../users/${u}/home.nix;
+    }) normalizedUsers);
+  userConfigs = map (u: ../users/${u}) normalizedUsers;
 
 in systemFunc {
   inherit system;
@@ -32,12 +45,14 @@ in systemFunc {
     { nixpkgs.config.allowUnfree = true; }
 
     hConf
-    userConfig
-    home-manager.home-manager {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.users.${user} = import userHMConfig;
-      home-manager.extraSpecialArgs = { inherit inputs; };
-    }
-  ];
+    ]
+    ++ userConfigs
+    ++ [
+      home-manager.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users = hmUsers;
+        home-manager.extraSpecialArgs = { inherit inputs; };
+      }
+    ];
 }

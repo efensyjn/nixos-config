@@ -17,7 +17,7 @@
   };
   
   config = {
-    assertions = [
+    assertions = lib.mkIf config.mods.nvidia.enable [
       {
         assertion = !config.picks.obs.nvidia || config.mods.nvidia.enable;
         message = "Option `picks.obs.nvidia` can only be enabled if nvidia modules are on is true.";

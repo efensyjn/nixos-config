@@ -40,6 +40,11 @@
     keepassxc
 
     krita
+    obs-studio
+    mpv
+
+    kdePackages.kleopatra
+    gnupg
   ];
 
   # Let Home Manager install and manage itself
@@ -47,4 +52,8 @@
 
   # XDG configuration
   xdg.enable = true;
+
+  services.gpg-agent.enable = true;
+  services.gpg-agent.enableSshSupport = true;
+  services.gpg-agent.sshKeys = [ "9DC5AB95C58ABAA2BA37C0DBED346BB528F122A3" ];
 }

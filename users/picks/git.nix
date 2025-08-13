@@ -9,12 +9,12 @@
       };
       userName = lib.mkOption {
         type = lib.types.str;
-        default = "efe";
-        description = "Git user name";
+        default = "";
+        description = "";
       };
       userEmail = lib.mkOption {
         type = lib.types.str;
-        default = "me@efensyjn.moe";
+        default = "";
         description = "Git user email";
       };
     };

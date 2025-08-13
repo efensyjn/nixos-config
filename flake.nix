@@ -1,5 +1,5 @@
 {
-  description = "In the midst of chaos, there is also opportunity.";
+  description = "Hermit in the mountains with a meticulously organized library of spells.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -31,6 +31,10 @@
       waguri = mkSystem "waguri" {
         system = "x86_64-linux";
         user = "efe";
+      };
+      nattsu = mkSystem "nattsu" {
+        system = "x86_64-linux";
+        users = [ "ace" "aly" ];
       };
     };
   };
