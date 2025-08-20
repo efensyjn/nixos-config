@@ -37,5 +37,9 @@
   mods.nvidia.enable = false; 
   mods.xserver.enable = false;
 
+  virtualisation.docker = {
+    enable = true;
+  };
+
   system.stateVersion = "25.05";
 }

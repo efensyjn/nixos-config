@@ -14,6 +14,7 @@
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @inputs: let
