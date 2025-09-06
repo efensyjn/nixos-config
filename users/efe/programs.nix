@@ -1,12 +1,16 @@
 { inputs, config, ... }:
 
 {
+  ## ─── Imports ──────────────────────────────────
   imports = [
     inputs.nix4nvchad.homeManagerModule
   ];
 
+  ## ─── Editors & Development ────────────────────
   programs.nvchad.enable = true;
+  programs.git.enable = true;
 
+  ## ─── Terminal ─────────────────────────────────
   programs.kitty = {
     enable = true;
     settings = {
@@ -19,8 +23,10 @@
       enable_audio_bell = false;
       mouse_hide_wait = "-1.0";
       window_padding_width = 10;
+
       background_opacity = "0.9";
       background_blur = 0;
+
       symbol_map = let
         mappings = [
           "U+23FB-U+23FE"
@@ -47,6 +53,7 @@
     };
   };
 
+  ## ─── Shell ────────────────────────────────────
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -71,9 +78,4 @@
       theme = "robbyrussell";
     };
   };
-
-  programs.git = {
-    enable = true;
-  };
-
 }
