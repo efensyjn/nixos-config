@@ -1,6 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
+  sops.defaultSopsFile = ../../secrets/efe.yaml;
+  sops.age.keyFile = "/var/lib/sops-nix/ghe.txt";
+
+  sops.secrets."user/hashedPassword" = {
+    owner = "efe";
+    neededForUsers = true;
+  };
+
   users.users.efe = {
     isNormalUser = true;
     home = "/home/efe";
@@ -13,6 +21,6 @@
     ];
 
     ## ─── Authentication ─────────────────────────
-    hashedPassword = "$6$star........mLWP$EFE.MIUZOqV3H/LJ5oIkFYJ2wqpNjUNw5vIgP07DDC1lPQGGxR/fS4aFGpWzz0TzgKjYdERyf7vqE9usxQ/J3/";
+    hashedPasswordFile = config.sops.secrets."user/hashedPassword".path;
   };
 }

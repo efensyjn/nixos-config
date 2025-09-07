@@ -14,10 +14,14 @@
     ## ─── Communication & Media ───────────────────
     discord-ptb
     spotify
+    brave
 
     ## ─── Security & Passwords ────────────────────
     cryptomator
     keepassxc
+    kdePackages.kleopatra
+    sops
+    age
 
     ## ─── Gaming & Emulation ──────────────────────
     steam-run
@@ -36,7 +40,7 @@
     pkgsi686Linux.gperftools   # required for CS:Source
 
     ## ─── Libraries & Dependencies ─
-    libgpgerror
+    libgpg-error
     libxml2
     freetype
     gnutls

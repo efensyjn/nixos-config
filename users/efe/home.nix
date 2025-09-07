@@ -1,10 +1,9 @@
-{ pkgs, system, ... }:
+{ pkgs, ... }:
 
 {
   ## ─── Imports ──────────────────────────────────
   imports = [
     ./programs.nix
-    ./${system}
   ];
 
   ## ─── Home Config ──────────────────────────────
@@ -22,5 +21,7 @@
     # Utilities
     p7zip
     gnupg
+    sops
+    age
   ];
 }

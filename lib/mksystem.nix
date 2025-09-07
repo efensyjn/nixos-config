@@ -40,6 +40,7 @@ in systemFunc {
 
   modules = [
     ../hardware-configuration.nix
+    inputs.sops-nix.nixosModules.sops
     { nixpkgs.overlays = overlays; }
     { nixpkgs.config.allowUnfree = unfree; }
     { networking.hostName = name; }
