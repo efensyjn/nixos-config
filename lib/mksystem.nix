@@ -34,6 +34,8 @@ let
     if builtins.pathExists pkp
     then pkp
     else {};
+  
+  hname = name;
 
 in systemFunc {
   inherit system;
@@ -53,7 +55,7 @@ in systemFunc {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users = hmUsers;
-        home-manager.extraSpecialArgs = { inherit inputs; };
+        home-manager.extraSpecialArgs = { inherit inputs hname; };
       }
     ];
 }

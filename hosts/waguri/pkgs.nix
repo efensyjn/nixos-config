@@ -15,6 +15,7 @@
     discord-ptb
     spotify
     brave
+    exiftool
 
     ## ─── Security & Passwords ────────────────────
     cryptomator
@@ -48,5 +49,7 @@
     SDL2
     sqlite
     xml2
+
+    stellarium
   ];
 }

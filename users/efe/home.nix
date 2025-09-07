@@ -1,9 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, ... }@e:
 
+let
+  hostname = e.hname;
+in
 {
   ## ─── Imports ──────────────────────────────────
   imports = [
     ./programs.nix
+    ./${hostname}
   ];
 
   ## ─── Home Config ──────────────────────────────

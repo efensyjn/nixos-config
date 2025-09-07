@@ -39,6 +39,8 @@
 
     # Shells
     zsh.enable = true;
+
+    thunderbird.enable = true;
   };
 
   # ─── Services ────────────────────────────────────────
