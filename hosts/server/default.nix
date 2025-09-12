@@ -14,9 +14,6 @@
 
   # ─── Programs ────────────────────────────────────────
   programs = {
-    # Browsers
-    firefox.enable = true;
-
     # Editors
     neovim = {
       enable = true;
@@ -29,53 +26,50 @@
     git.enable = true;
     nh.enable = true;
 
-    # Gaming
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-    };
-    gamemode.enable = true;
-
     # Shells
     zsh.enable = true;
-
-    thunderbird.enable = true;
   };
-
-  # ─── Services ────────────────────────────────────────
-  services = {
-    flatpak.enable = true;
-
-    udev.extraRules = ''
-      KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3554", ATTRS{idProduct}=="f58f", MODE="0666"
-      KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="373b", ATTRS{idProduct}=="1085", MODE="0666"
-    '';
-
-    hardware.openrgb = {
-      enable = true;
-      motherboard = "intel";
-    };
-  };
-
-  # ─── Hardware ────────────────────────────────────────
-  hardware.opentabletdriver.enable = true;
 
   # ─── Mods ────────────────────────────────────────────
   mods = {
-    nvidia.enable = true;
     networking.enable = true;
-
-    libinput.enable = true;
-    pipewire.enable = true;
-    xserver.enable = true;
-
-    plasma.enable = true;
   };
 
   # ─── Virtualisation ──────────────────────────────────
   virtualisation.docker.enable = true;
-  virtualisation.waydroid.enable = true;
+
+  sops.defaultSopsFile = ../../secrets/efe.yaml;
+  sops.age.keyFile = "/var/lib/sops-nix/ghe.txt";
+
+  sops.secrets."server/gitlab/dbPassword".owner = "efe";
+  sops.secrets."server/gitlab/rootPassword".owner = "efe";
+  sops.secrets."server/gitlab/".owner = "efe";
+
+  services.gitlab = {
+    enable = true;
+    databasePasswordFile = pkgs.writeText "dbPassword" "zgvcyfwsxzcwr85l";
+    initialRootPasswordFile = pkgs.writeText "rootPassword" "dakqdvp4ovhksxer";
+    secrets = {
+      secretFile = pkgs.writeText "secret" "Aig5zaic";
+      otpFile = pkgs.writeText "otpsecret" "Riew9mue";
+      dbFile = pkgs.writeText "dbsecret" "we2quaeZ";
+      jwsFile = pkgs.runCommand "oidcKeyBase" {} "${pkgs.openssl}/bin/openssl genrsa 2048 > $out";
+    };
+  };
+
+  services.nginx = {
+    enable = true;
+    recommendedProxySettings = true;
+    virtualHosts = {
+      localhost = {
+        locations."/".proxyPass = "http://unix:/run/gitlab/gitlab-workhorse.socket";
+      };
+    };
+  };
+
+  services.openssh.enable = true;
+
+  systemd.services.gitlab-backup.environment.BACKUP = "dump";
 
   system.stateVersion = "25.05";
 }
