@@ -61,11 +61,20 @@
   # ─── Hardware ────────────────────────────────────────
   hardware.opentabletdriver.enable = true;
 
+  # ─── Mods ────────────────────────────────────────────
+  mods = {
+    nvidia.enable = true;
+    networking.enable = true;
+
+    libinput.enable = true;
+    pipewire.enable = true;
+    xserver.enable = true;
+
+    plasma.enable = true;
+  };
+
   # ─── Virtualisation ──────────────────────────────────
   virtualisation.docker.enable = true;
-
-  # ─── Desktop Environment Mods ────────────────────────
-  mods.plasma.enable = true;
 
   system.stateVersion = "25.05";
 }

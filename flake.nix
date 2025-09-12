@@ -40,7 +40,7 @@
       };
       server = mkSystem "server" {
         system = "x86_64-linux";
-        users = [ "efe" "aly" ]
+        users = [ "efe" "aly" ];
       };
     };
   };
