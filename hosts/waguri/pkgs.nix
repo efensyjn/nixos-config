@@ -10,6 +10,7 @@
     kdePackages.kate
     krita
     planify
+    eza
 
     ## ─── Communication & Media ───────────────────
     discord-ptb
@@ -49,8 +50,18 @@
     sqlite
     xml2
     swiftshader
+    vulkan-tools
+
+    wine64
+    winetricks
+    protontricks
 
     stellarium
+
+    libreoffice-qt
+    hunspell
+    hunspellDicts.uk_UA
+    hunspellDicts.th_TH
   ] ++ [
     pkgs-stable.lutris
     pkgs-stable.planify

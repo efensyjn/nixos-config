@@ -7,6 +7,7 @@ in
   ## ─── Imports ──────────────────────────────────
   imports = [
     ./programs.nix
+    ./aliases.nix
     ./${hostname}
   ];
 
@@ -18,7 +19,6 @@ in
   ## ─── Core Services ────────────────────────────
   programs.home-manager.enable = true;
   xdg.enable = true;
-  services.gpg-agent.enable = true;
 
   ## ─── Packages ─────────────────────────────────
   home.packages = with pkgs; [
@@ -27,5 +27,6 @@ in
     gnupg
     sops
     age
+    eza
   ];
 }

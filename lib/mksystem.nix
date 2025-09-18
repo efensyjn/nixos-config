@@ -63,7 +63,10 @@ in systemFunc {
       {
         _module.args = {
           inherit inputs;
-          pkgs-stable = import inputs.nixpkgs-stable { inherit system; };
+          pkgs-stable = import inputs.nixpkgs-stable { 
+            inherit system;
+            config.allowUnfree = unfree;
+          };
         };
       }
     ];
