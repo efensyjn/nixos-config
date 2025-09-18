@@ -1,5 +1,8 @@
 { config, lib, ... }:
 
+let
+  nvidiaPackage = config.hardware.nvidia.package;
+in
 {
   options = {
     mods.nvidia = {

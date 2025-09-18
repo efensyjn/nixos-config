@@ -18,6 +18,7 @@
     extraGroups = [
       "wheel"    # sudo/admin
       "plugdev"  # device access
+      "docker"
     ];
 
     ## ─── Authentication ─────────────────────────

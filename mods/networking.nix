@@ -13,7 +13,7 @@
 
   config = lib.mkIf config.mods.networking.enable {
     networking.networkmanager.enable = true;
-    services.dnscrypt-proxy2 = {
+    services.dnscrypt-proxy = {
       enable = true;
       settings = {
         server_names = [ "cloudflare" "quad9-dnscrypt-ip4-filter-pri" ];

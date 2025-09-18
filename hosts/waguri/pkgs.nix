@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs-stable, pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -31,7 +31,6 @@
     prismlauncher
     rpcs3
     osu-lazer
-    en-croissant
     vinegar
 
     ## ─── Gaming Tools / Performance ──────────────
@@ -49,7 +48,15 @@
     SDL2
     sqlite
     xml2
+    swiftshader
 
     stellarium
+  ] ++ [
+    pkgs-stable.lutris
+    pkgs-stable.planify
+  ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "libsoup-2.74.3"
   ];
 }

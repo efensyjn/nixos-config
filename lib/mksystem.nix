@@ -57,5 +57,14 @@ in systemFunc {
         home-manager.users = hmUsers;
         home-manager.extraSpecialArgs = { inherit inputs hname; };
       }
+    ]
+    ++ 
+    [
+      {
+        _module.args = {
+          inherit inputs;
+          pkgs-stable = import inputs.nixpkgs-stable { inherit system; };
+        };
+      }
     ];
 }
