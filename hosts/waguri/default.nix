@@ -71,6 +71,7 @@
     xserver.enable = true;
 
     plasma.enable = true;
+    specialization.hyprland.enable = true;
   };
 
   # ─── Virtualisation ──────────────────────────────────

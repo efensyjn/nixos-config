@@ -21,6 +21,9 @@
       "docker"
     ];
 
+    openssh.authorizedKeys.keys = 
+      [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG/TuG97qualVQ1k9I4IXfafiChp8iOhfebl78MIMwZJ efe@waguri" ];
+
     ## ─── Authentication ─────────────────────────
     hashedPasswordFile = config.sops.secrets."user/hashedPassword".path;
   };

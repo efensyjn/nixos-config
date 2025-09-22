@@ -38,7 +38,7 @@
         system = "x86_64-linux";
         user = "efe";
       };
-      server = mkSystem "server" {
+      orrin = mkSystem "orrin" {
         system = "x86_64-linux";
         users = [ "efe" "aly" ];
       };
