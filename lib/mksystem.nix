@@ -41,8 +41,9 @@ in systemFunc {
   inherit system;
 
   modules = [
-    ../hardware-configuration.nix
+    ../hosts/${name}/hardware-configuration.nix
     inputs.sops-nix.nixosModules.sops
+    inputs.nix-dokploy.nixosModules.default
     { nixpkgs.overlays = overlays; }
     { nixpkgs.config.allowUnfree = unfree; }
     { networking.hostName = name; }

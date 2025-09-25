@@ -38,6 +38,21 @@
         "type": "github"
       }
     },
+    "nix-dokploy": {
+      "locked": {
+        "lastModified": 1758191075,
+        "narHash": "sha256-nFP238vyQec5aSvvDdPj0Fh7UEpuNBygv+pwtbDKLow=",
+        "owner": "el-kurto",
+        "repo": "nix-dokploy",
+        "rev": "f6a8b2a1ae406fd38c57658d45732eeebc6e8c10",
+        "type": "github"
+      },
+      "original": {
+        "owner": "el-kurto",
+        "repo": "nix-dokploy",
+        "type": "github"
+      }
+    },
     "nix4nvchad": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -112,6 +127,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "nix-dokploy": "nix-dokploy",
         "nix4nvchad": "nix4nvchad",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",

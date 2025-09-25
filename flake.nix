@@ -20,6 +20,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-dokploy.url = "github:el-kurto/nix-dokploy";
+
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @inputs: let
