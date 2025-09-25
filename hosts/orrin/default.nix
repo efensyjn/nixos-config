@@ -1,12 +1,17 @@
-{ ... }:
+{ config, ... }:
 
 {
   imports = [
     ../../mods
   ];
 
-  sops.defaultSopsFile = ../../secrets/efe.yaml;
   sops.age.keyFile = "/var/lib/sops-nix/ghe.txt";
+
+  sops.secrets.cloudflared-creds = {
+    sopsFile = ../../secrets/cloudflared-creds.json;
+    format = "json";
+    key = "";
+  };
 
   services.automatic-timezoned.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -49,12 +54,12 @@
 
   services.cloudflared = {
     enable = true;
-#    tunnels = {
-#      "35752cf2-0cf4-49c2-8470-00b7e3b39b45" = {
-#        credentialsFile = "${config.sops.secrets.cloudflared-creds.path}";
-#        default = "http_status:404";
-#      };
-#    };
+    tunnels = {
+      "8fc7be20-3956-41a2-ab88-2ece7658e349" = {
+        credentialsFile = "${config.sops.secrets.cloudflared-creds.path}";
+        default = "http_status:404";
+      };
+    };
   };
 
   system.stateVersion = "25.05";

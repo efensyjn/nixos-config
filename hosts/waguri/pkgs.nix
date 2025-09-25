@@ -11,6 +11,7 @@
     krita
     planify
     eza
+    cloudflared
 
     ## ─── Communication & Media ───────────────────
     discord-ptb
