@@ -38,6 +38,8 @@
     networking.enable = true;
   };
 
+  networking.networkmanager.unmanaged = [ "wlp2s0" ];
+
   # ─── Virtualisation ──────────────────────────────────
   virtualisation.docker.enable = true;
 
