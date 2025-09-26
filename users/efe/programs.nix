@@ -8,8 +8,13 @@
 
   ## ─── Editors & Development ────────────────────
   programs.nvchad.enable = true;
-  programs.git.enable = true;
   programs.tmux.enable = true;
+
+  programs.git = {
+    enable = true;
+    userEmail = "me@efensyjn.moe";
+    userName = "efensyjn";
+  };
 
   ## ─── Terminal ─────────────────────────────────
   programs.kitty = {
