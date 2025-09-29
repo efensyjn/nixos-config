@@ -56,6 +56,10 @@
       enable = true;
       motherboard = "intel";
     };
+
+    ## Vibe coding
+    ollama.enable = true;
+    ollama.acceleration = "cuda";
   };
 
   # ─── Hardware ────────────────────────────────────────

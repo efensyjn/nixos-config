@@ -63,6 +63,10 @@
     hunspell
     hunspellDicts.uk_UA
     hunspellDicts.th_TH
+
+    # Vibe coding
+    aider-chat-full
+
   ] ++ [
     pkgs-stable.lutris
     pkgs-stable.planify
