@@ -41,6 +41,8 @@
     zsh.enable = true;
 
     thunderbird.enable = true;
+
+    anime-game-launcher.enable = true;
   };
 
   # ─── Services ────────────────────────────────────────

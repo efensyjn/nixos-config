@@ -50,14 +50,13 @@
     SDL2
     sqlite
     xml2
-    swiftshader
     vulkan-tools
 
     wine64
     winetricks
     protontricks
 
-    stellarium
+    indi-with-drivers
 
     libreoffice-qt
     hunspell
@@ -67,12 +66,26 @@
     # Vibe coding
     aider-chat-full
 
+    uv
+    python313
+
+    direnv
+    jetbrains.jdk-no-jcef
+    jdk21
+    libGL
+
+    masscan
+    libpcap
   ] ++ [
     pkgs-stable.lutris
     pkgs-stable.planify
+    pkgs-stable.jetbrains.idea-community
+    pkgs-stable.swiftshader
+    pkgs-stable.kstars
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
     "libsoup-2.74.3"
+    "electron-35.7.5"
   ];
 }

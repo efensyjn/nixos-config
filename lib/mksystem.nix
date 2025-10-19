@@ -44,6 +44,8 @@ in systemFunc {
     ../hosts/${name}/hardware-configuration.nix
     inputs.sops-nix.nixosModules.sops
     inputs.nix-dokploy.nixosModules.default
+    inputs.aagl.nixosModules.default
+    { nix.settings = inputs.aagl.nixConfig; }
     { nixpkgs.overlays = overlays; }
     { nixpkgs.config.allowUnfree = unfree; }
     { networking.hostName = name; }
