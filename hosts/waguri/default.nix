@@ -62,6 +62,27 @@
     ## Vibe coding
     ollama.enable = true;
     ollama.acceleration = "cuda";
+    
+    qbittorrent.enable = true;
+
+    n8n.enable = true;
+
+    searx = {
+      enable = true;
+      redisCreateLocally = true;
+      settings = {
+        server = {
+          bind_address = "::1";
+          port = 6867;
+          # WARNING: setting secret_key here might expose it to the nix cache
+          # see below for the sops or environment file instructions to prevent this
+          secret_key = "aaa";
+          public_instance = false;
+          limiter = false;
+        };
+        search.formats = ["html" "json"];
+      };
+    };
   };
 
   # ─── Hardware ────────────────────────────────────────
@@ -82,7 +103,12 @@
 
   # ─── Virtualisation ──────────────────────────────────
   virtualisation.docker.enable = true;
+  hardware.nvidia-container-toolkit.enable = true;
   virtualisation.waydroid.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  virtualisation.virtualbox.guest.enable = true;
+  users.extraGroups.vboxusers.members = [ "efe" ];
 
   system.stateVersion = "25.05";
 }

@@ -4,6 +4,7 @@
   ## ─── Imports ──────────────────────────────────
   imports = [
     inputs.nix4nvchad.homeManagerModule
+    inputs.seanime.nixosModules.seanime
   ];
 
   ## ─── Editors & Development ────────────────────
@@ -71,4 +72,5 @@
   };
 
   programs.yazi.enable = true;
+  modules.home.services.seanime.enable = true;
 }

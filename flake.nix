@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -26,6 +26,8 @@
     };
 
     nix-dokploy.url = "github:el-kurto/nix-dokploy";
+    
+    seanime.url = "github:rishabh5321/seanime-flake";
 
   };
 

@@ -31,6 +31,7 @@
     protonup-qt
     lutris
     prismlauncher
+    glfw3-minecraft
     rpcs3
     osu-lazer
     vinegar
@@ -76,6 +77,15 @@
 
     masscan
     libpcap
+
+    unityhub
+
+    kdePackages.kdenlive
+
+    qbittorrent
+    
+    ffmpeg-full
+    n8n
   ] ++ [
     pkgs-stable.lutris
     pkgs-stable.planify
@@ -88,4 +98,6 @@
     "libsoup-2.74.3"
     "electron-35.7.5"
   ];
+
+  virtualisation.virtualbox.host.package = pkgs-stable.virtualbox;
 }
